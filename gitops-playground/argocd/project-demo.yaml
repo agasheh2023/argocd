@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: demo
+  namespace: argocd
+spec:
+  description: Demo project for multi-env GitOps
+  # MUST exactly match your repo URL
+  sourceRepos:
+    - https://github.com/agasheh2023/gitops-playground.git
+  destinations:
+    - server: https://kubernetes.default.svc
+      namespace: '*'
+  # Allow the controller to create cluster-scoped Namespaces
+  clusterResourceWhitelist:
+    - group: '*'
+      kind: '*'
+  namespaceResourceWhitelist:
+    - group: '*'
+      kind: '*'
