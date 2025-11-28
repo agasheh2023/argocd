@@ -7,7 +7,7 @@ spec:
   description: Demo project for multi-env GitOps
   # MUST exactly match your repo URL
   sourceRepos:
-    - https://github.com/agasheh2023/gitops-playground.git
+    - https://github.com/agasheh2023/argocd.git
   destinations:
     - server: https://kubernetes.default.svc
       namespace: '*'
