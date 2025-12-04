@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: secret-consumer
+  namespace: secrets-demo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: secret-consumer
+  template:
+    metadata:
+      labels:
+        app: secret-consumer
+    spec:
+      containers:
+      - name: app
+        image: busybox:1.37
+        command:
+        - sh
+        - -c
+        - |
+          echo "Starting secret-consumer...";
+          echo "DB_PASSWORD is: $DB_PASSWORD";
+          sleep 3600
+        env:
+        - name: DB_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: db-pass
+              key: password
