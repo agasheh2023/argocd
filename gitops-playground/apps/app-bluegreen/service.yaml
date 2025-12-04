@@ -7,7 +7,7 @@ spec:
   type: NodePort
   selector:
     app: app-bg
-    version: blue     # 👈 initial traffic goes to Blue
+    version: green     # 👈 initial traffic goes to Blue and then we chnaged to green
   ports:
   - name: http
     port: 80
