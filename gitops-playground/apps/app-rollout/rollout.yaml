@@ -25,6 +25,6 @@ spec:
     spec:
       containers:
       - name: web
-        image: nginx:1.25.4          # ⬅️ OLD version (start here)
+        image: nginx:1.25.5          # ⬅️ OLD version (start here)
         ports:
         - containerPort: 80
